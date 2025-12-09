@@ -32,15 +32,55 @@ const MizuhikiKnot = () => (
     </svg>
 );
 
-const InkanStamp = ({ text }: { text: string }) => (
-    <div className="relative group cursor-default">
-        <div className="w-12 h-12 border-2 border-[#C44302] rounded-lg opacity-80 rotate-12 flex items-center justify-center bg-[#C44302]/5 mix-blend-multiply backdrop-blur-[1px]">
-            <div className="w-10 h-10 border border-[#C44302] border-dashed rounded flex items-center justify-center">
-                <span className="text-[#C44302] font-bold text-xs writing-vertical font-serif tracking-widest leading-none">{text}</span>
+const InkanStamp = ({ text }: { text: string }) => {
+    const [showSecret, setShowSecret] = React.useState(false);
+    const [pressTimer, setPressTimer] = React.useState<NodeJS.Timeout | null>(null);
+
+    const handlePressStart = () => {
+        const timer = setTimeout(() => setShowSecret(true), 1500);
+        setPressTimer(timer);
+    };
+
+    const handlePressEnd = () => {
+        if (pressTimer) clearTimeout(pressTimer);
+        setPressTimer(null);
+    };
+
+    return (
+        <div className="relative group cursor-default"
+            onMouseDown={handlePressStart}
+            onMouseUp={handlePressEnd}
+            onMouseLeave={handlePressEnd}
+            onTouchStart={handlePressStart}
+            onTouchEnd={handlePressEnd}
+        >
+            {showSecret && (
+                <div
+                    className="fixed inset-0 z-[4000] bg-stone-900/90 flex items-center justify-center p-8 animate-in fade-in duration-500"
+                    onClick={() => setShowSecret(false)}
+                >
+                    <div className="text-center">
+                        <div className="text-6xl mb-4">💕</div>
+                        <p className="text-[#FDFBF7] font-serif text-lg leading-relaxed mb-2">
+                            To my dearest Celin,
+                        </p>
+                        <p className="text-stone-400 font-serif text-sm italic leading-relaxed max-w-xs">
+                            Every step of this journey<br />
+                            is sweeter because it's with you.<br />
+                            — Max
+                        </p>
+                        <p className="text-stone-500 text-xs mt-6">tap to close</p>
+                    </div>
+                </div>
+            )}
+            <div className="w-12 h-12 border-2 border-[#C44302] rounded-lg opacity-80 rotate-12 flex items-center justify-center bg-[#C44302]/5 mix-blend-multiply backdrop-blur-[1px] transition-transform active:scale-95">
+                <div className="w-10 h-10 border border-[#C44302] border-dashed rounded flex items-center justify-center">
+                    <span className="text-[#C44302] font-bold text-xs writing-vertical font-serif tracking-widest leading-none">{text}</span>
+                </div>
             </div>
         </div>
-    </div>
-);
+    );
+};
 
 const SeigaihaPattern = () => (
     <div className="absolute top-0 right-0 w-48 h-24 opacity-[0.03] pointer-events-none z-0 overflow-hidden"
@@ -604,10 +644,12 @@ const Dashboard: React.FC = () => {
                 ))}
             </section>
 
-            {/* Decorative Footer */}
-            <footer className="mt-16 text-center opacity-40 pb-4 relative z-10">
+            {/* Decorative Footer - with hidden Easter egg */}
+            <footer className="mt-16 text-center opacity-40 pb-4 relative z-10 group">
                 <div className="w-px h-8 bg-stone-300 mx-auto mb-4"></div>
-                <p className="text-[10px] font-serif italic tracking-widest text-stone-500">Kyoto Winter Sync • 2025</p>
+                <p className="text-[10px] font-serif italic tracking-widest text-stone-500">
+                    C<span className="inline-block group-hover:text-[#C44302] transition-colors">♡</span>M • Winter 2025
+                </p>
             </footer>
 
         </div>

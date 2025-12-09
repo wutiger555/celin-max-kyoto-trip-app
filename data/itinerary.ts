@@ -168,7 +168,8 @@ export const ITINERARY_DATA: DayPlan[] = [
           { name: "Coffee to Canele", description: "精緻可麗露與咖啡", type: "Cafe", googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Coffee+to+Canele+Kyoto" },
           { name: "Goodman Roaster", description: "高品質手沖咖啡", type: "Cafe", googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Goodman+Roaster+Kyoto" }
         ],
-        walkingGuide: "沿著鴨川漫步，享受夜晚寧靜。步行回飯店約 20 分鐘。"
+        walkingGuide: "沿著鴨川漫步，享受夜晚寧靜。步行回飯店約 20 分鐘。",
+        notes: "傳說在鴨川邊許願的情侶會永遠幸福 ♡"
       }
     ]
   },
@@ -204,7 +205,8 @@ export const ITINERARY_DATA: DayPlan[] = [
         description: "拍照重點：竹林步道、神社鳥居。可繞去渡月橋拍河景。",
         address: "京都市右京區嵯峨野",
         location: { lat: 35.0170, lng: 135.6730 },
-        googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Arashiyama+Bamboo+Grove"
+        googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Arashiyama+Bamboo+Grove",
+        notes: "野宮神社是戀愛成就的聖地。撫摸「龜石」許願，據說一年內願望會實現 🐢✨"
       },
       {
         id: "d2-3",
@@ -248,7 +250,8 @@ export const ITINERARY_DATA: DayPlan[] = [
           station: "嵐山",
           platform: "路面電車轉公車",
           duration: 40
-        }
+        },
+        tips: ["金閣寺的金箔象徵永恆不變 — just like us 💛"]
       },
       {
         id: "d2-6",

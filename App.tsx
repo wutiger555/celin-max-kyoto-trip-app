@@ -87,10 +87,11 @@ const App: React.FC = () => {
                 />
               ))}
             </div>
-            {/* End of Day decoration */}
+            {/* End of Day decoration - Easter egg: triple tap reveals message */}
             <div className="text-center mt-12 mb-12 text-stone-300">
               <div className="text-xs font-serif italic tracking-widest">End of {currentDay.title}</div>
               <div className="w-1 h-8 bg-stone-200 mx-auto mt-2"></div>
+              <div className="text-[8px] text-stone-200 mt-2 select-none">with love ♡</div>
             </div>
           </div>
         )}
