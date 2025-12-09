@@ -18,9 +18,9 @@ export default defineConfig(({ mode }) => {
         registerType: 'autoUpdate',
         includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
         manifest: {
-          name: 'Kyoto Winter Sync',
-          short_name: 'KyotoSync',
-          description: 'Travel companion for Max & Celin\'s 2025 Winter Trip',
+          name: 'Winter in Kyoto • C&M',
+          short_name: 'WinterKyoto',
+          description: 'A journey through winter landscapes | Celin & Max 2025',
           theme_color: '#FDFBF7',
           background_color: '#FDFBF7',
           display: 'standalone',

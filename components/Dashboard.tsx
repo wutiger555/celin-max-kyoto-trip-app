@@ -569,9 +569,11 @@ const Dashboard: React.FC = () => {
                                                     <div className="flex items-baseline gap-2 border-b-2 border-stone-800 pb-1">
                                                         <span className="text-lg font-serif">¥</span>
                                                         <input
-                                                            type="number"
+                                                            type="text"
+                                                            inputMode="decimal"
+                                                            pattern="[0-9]*"
                                                             value={jpyAmount}
-                                                            onChange={(e) => setJpyAmount(e.target.value)}
+                                                            onChange={(e) => setJpyAmount(e.target.value.replace(/[^0-9]/g, ''))}
                                                             placeholder="0"
                                                             className="w-full bg-transparent text-3xl font-display font-bold text-stone-900 focus:outline-none placeholder-stone-200"
                                                         />

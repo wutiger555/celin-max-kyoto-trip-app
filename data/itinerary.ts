@@ -22,23 +22,23 @@ export const HOTELS = {
 };
 
 export const FLIGHTS: { outbound: FlightInfo; inbound: FlightInfo } = {
-  outbound: { 
-    code: "VZ566", 
+  outbound: {
+    code: "VZ566",
     airline: "泰越捷航空",
     status: "On Time",
     departure: { airport: "Taipei (Taoyuan)", code: "TPE", terminal: "1", time: "07:30" },
     arrival: { airport: "Osaka (Kansai)", code: "KIX", terminal: "1", time: "11:00" },
-    route: "TPE (T1) ➜ KIX (T1)", 
-    time: "07:30 - 11:00" 
+    route: "TPE (T1) ➜ KIX (T1)",
+    time: "07:30 - 11:00"
   },
-  inbound: { 
-    code: "VZ567", 
+  inbound: {
+    code: "VZ567",
     airline: "泰越捷航空",
     status: "Scheduled",
     departure: { airport: "Osaka (Kansai)", code: "KIX", terminal: "1", time: "12:00" },
     arrival: { airport: "Taipei (Taoyuan)", code: "TPE", terminal: "1", time: "14:15" },
-    route: "KIX (T1) ➜ TPE (T1)", 
-    time: "12:00 - 14:15" 
+    route: "KIX (T1) ➜ TPE (T1)",
+    time: "12:00 - 14:15"
   }
 };
 
@@ -68,7 +68,7 @@ export const ITINERARY_DATA: DayPlan[] = [
         title: "HARUKA 特急 → 京都",
         type: ActivityType.TRAIN,
         description: "搭乘 Hello Kitty 列車前往京都車站 (約 75 分)。",
-        location: { lat: 34.4320, lng: 135.2304 }, 
+        location: { lat: 34.4320, lng: 135.2304 },
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Kyoto+Station",
         transport: {
           line: "HARUKA 特急",
@@ -108,12 +108,20 @@ export const ITINERARY_DATA: DayPlan[] = [
         location: { lat: 34.9949, lng: 135.7850 },
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera",
         transport: {
-            line: "市營公車 206/207",
-            destination: "往 清水寺",
-            station: "四條烏丸",
-            platform: "公車站",
-            duration: 20
-        }
+          line: "市營公車 206/207",
+          destination: "往 清水寺",
+          station: "四條烏丸",
+          platform: "公車站",
+          duration: 20
+        },
+        businessHours: "6:00 - 18:00",
+        estimatedCost: "¥400 入場",
+        instagramTag: "#清水寺",
+        tips: [
+          "清晨人較少，建議早點到",
+          "從清水坂往上走可避開人潮",
+          "二年坂有很多小店可逛"
+        ]
       },
       {
         id: "d1-5",
@@ -135,7 +143,18 @@ export const ITINERARY_DATA: DayPlan[] = [
         address: "京都市中京区鍋屋町178",
         location: { lat: 35.0039, lng: 135.7709 },
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Yuzugen+Kyoto",
-        notes: "需提前預約。"
+        notes: "需提前預約。",
+        businessHours: "17:00 - 23:00",
+        closedDays: "週日休",
+        phone: "+81-75-213-2123",
+        estimatedCost: "¥3,000 ~ ¥5,000/人",
+        reservationRequired: true,
+        instagramTag: "#柚子元",
+        tips: [
+          "招牌是柚子豬肉鍋",
+          "可請飯店協助預約",
+          "先斗町很有氣氛，可早點去逛逛"
+        ]
       },
       {
         id: "d1-7",
@@ -146,8 +165,8 @@ export const ITINERARY_DATA: DayPlan[] = [
         location: { lat: 35.0050, lng: 135.7700 },
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Kamogawa+River",
         backups: [
-            { name: "Coffee to Canele", description: "精緻可麗露與咖啡", type: "Cafe", googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Coffee+to+Canele+Kyoto" },
-            { name: "Goodman Roaster", description: "高品質手沖咖啡", type: "Cafe", googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Goodman+Roaster+Kyoto" }
+          { name: "Coffee to Canele", description: "精緻可麗露與咖啡", type: "Cafe", googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Coffee+to+Canele+Kyoto" },
+          { name: "Goodman Roaster", description: "高品質手沖咖啡", type: "Cafe", googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Goodman+Roaster+Kyoto" }
         ],
         walkingGuide: "沿著鴨川漫步，享受夜晚寧靜。步行回飯店約 20 分鐘。"
       }
@@ -170,11 +189,11 @@ export const ITINERARY_DATA: DayPlan[] = [
         location: { lat: 35.0035, lng: 135.7595 },
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Karasuma+Station",
         transport: {
-            line: "阪急京都線 -> 嵐山線",
-            destination: "往 嵐山",
-            station: "烏丸站",
-            platform: "需在桂站轉乘",
-            duration: 35
+          line: "阪急京都線 -> 嵐山線",
+          destination: "往 嵐山",
+          station: "烏丸站",
+          platform: "需在桂站轉乘",
+          duration: 35
         }
       },
       {
@@ -209,9 +228,9 @@ export const ITINERARY_DATA: DayPlan[] = [
         location: { lat: 35.0145, lng: 135.6775 },
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=eX+cafe+Arashiyama",
         backups: [
-            { name: "eX cafe 本店", description: "烤糰子+抹茶，庭園好拍", type: "Sweets", googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=eX+cafe+Arashiyama" },
-            { name: "Kumonocha Café", description: "雲朵慕斯，可愛風", type: "Cafe", googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Kumonocha+Cafe+Arashiyama" },
-            { name: "ReUnion", description: "高評分小咖啡車", type: "Coffee", googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Coffee+Stand+ReUnion+Arashiyama" }
+          { name: "eX cafe 本店", description: "烤糰子+抹茶，庭園好拍", type: "Sweets", googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=eX+cafe+Arashiyama" },
+          { name: "Kumonocha Café", description: "雲朵慕斯，可愛風", type: "Cafe", googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Kumonocha+Cafe+Arashiyama" },
+          { name: "ReUnion", description: "高評分小咖啡車", type: "Coffee", googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Coffee+Stand+ReUnion+Arashiyama" }
         ]
       },
       {
@@ -224,11 +243,11 @@ export const ITINERARY_DATA: DayPlan[] = [
         location: { lat: 35.0394, lng: 135.7292 },
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Kinkakuji",
         transport: {
-            line: "嵐電 + 公車 205",
-            destination: "往 金閣寺道",
-            station: "嵐山",
-            platform: "路面電車轉公車",
-            duration: 40
+          line: "嵐電 + 公車 205",
+          destination: "往 金閣寺道",
+          station: "嵐山",
+          platform: "路面電車轉公車",
+          duration: 40
         }
       },
       {
@@ -270,11 +289,11 @@ export const ITINERARY_DATA: DayPlan[] = [
         location: { lat: 35.0037, lng: 135.7720 },
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Gion-Shijo+Station",
         transport: {
-            line: "京阪本線 -> 宇治線",
-            destination: "往 宇治",
-            station: "祇園四條",
-            platform: "中書島轉乘",
-            duration: 35
+          line: "京阪本線 -> 宇治線",
+          destination: "往 宇治",
+          station: "祇園四條",
+          platform: "中書島轉乘",
+          duration: 35
         }
       },
       {
@@ -309,11 +328,11 @@ export const ITINERARY_DATA: DayPlan[] = [
         location: { lat: 34.9671, lng: 135.7727 },
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha",
         transport: {
-            line: "京阪本線",
-            destination: "往 伏見稻荷",
-            station: "祇園四條",
-            platform: "紅色線",
-            duration: 10
+          line: "京阪本線",
+          destination: "往 伏見稻荷",
+          station: "祇園四條",
+          platform: "紅色線",
+          duration: 10
         }
       },
       {
@@ -378,11 +397,11 @@ export const ITINERARY_DATA: DayPlan[] = [
         location: { lat: 35.0062, lng: 135.7562 },
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Kyoto+Station",
         transport: {
-            line: "JR 新快速",
-            destination: "往 大阪",
-            station: "京都站",
-            platform: "4/5 號月台",
-            duration: 30
+          line: "JR 新快速",
+          destination: "往 大阪",
+          station: "京都站",
+          platform: "4/5 號月台",
+          duration: 30
         }
       },
       {
@@ -469,8 +488,8 @@ export const ITINERARY_DATA: DayPlan[] = [
         location: { lat: 34.6917, lng: 135.5065 },
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Brooklyn+Roasting+Company+Kitahama",
         backups: [
-            { name: "Whitebird Coffee Stand", description: "梅田氣氛好店", type: "Cafe", googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Whitebird+Coffee+Stand" },
-            { name: "Brooklyn Roasting", description: "北濱河畔，景觀佳", type: "Cafe", googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Brooklyn+Roasting+Company+Kitahama" }
+          { name: "Whitebird Coffee Stand", description: "梅田氣氛好店", type: "Cafe", googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Whitebird+Coffee+Stand" },
+          { name: "Brooklyn Roasting", description: "北濱河畔，景觀佳", type: "Cafe", googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Brooklyn+Roasting+Company+Kitahama" }
         ]
       },
       {
@@ -503,7 +522,7 @@ export const ITINERARY_DATA: DayPlan[] = [
         location: { lat: 34.6687, lng: 135.5013 }, // Approximate
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Okonomiyaki+Baby+Osaka",
         backups: [
-            { name: "Usagiya", description: "在地老店", type: "Food", googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Usagiya+Osaka" }
+          { name: "Usagiya", description: "在地老店", type: "Food", googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Usagiya+Osaka" }
         ]
       }
     ]
@@ -545,11 +564,11 @@ export const ITINERARY_DATA: DayPlan[] = [
         location: { lat: 34.7024, lng: 135.4959 },
         googleMapsUrl: "https://www.google.com/maps/search/?api=1&query=Osaka+Station",
         transport: {
-            line: "JR 關空快速",
-            destination: "往 關西機場",
-            station: "JR 大阪站",
-            platform: "1 號月台",
-            duration: 50
+          line: "JR 關空快速",
+          destination: "往 關西機場",
+          station: "JR 大阪站",
+          platform: "1 號月台",
+          duration: 50
         },
         walkingGuide: "⚠ 重要：請務必搭乘「前 4 節車廂」。後 4 節會往和歌山。"
       },

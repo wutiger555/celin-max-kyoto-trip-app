@@ -44,8 +44,18 @@ export interface ItineraryItem {
   backups?: BackupOption[];
   notes?: string;
   link?: string;
-  transport?: TransportInfo; // New: Specific transport details
-  walkingGuide?: string;     // New: How to walk there
+  transport?: TransportInfo; // Specific transport details
+  walkingGuide?: string;     // How to walk there
+
+  // New optional fields for enhanced information
+  businessHours?: string;    // e.g. "9:00 - 17:00"
+  closedDays?: string;       // e.g. "週一休"
+  phone?: string;            // Phone number for reservations
+  website?: string;          // Official website
+  estimatedCost?: string;    // e.g. "¥1,500 ~ ¥3,000"
+  reservationRequired?: boolean; // Whether reservation is needed
+  instagramTag?: string;     // Instagram hashtag for the location
+  tips?: string[];           // Array of useful tips
 }
 
 export interface DayPlan {
@@ -82,5 +92,5 @@ export interface FlightInfo {
   arrival: FlightEndpoint;
   // Legacy fields for backward compatibility
   route?: string;
-  time?: string; 
+  time?: string;
 }
