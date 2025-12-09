@@ -1,0 +1,7 @@
+{
+  "name": "Kyoto Winter Sync",
+  "description": "A minimalist, design-forward travel companion for Max & Celin's 2025 Winter Trip to Kyoto and Osaka.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
