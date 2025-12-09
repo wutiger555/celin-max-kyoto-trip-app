@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar hiding for that native app feel */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Leaflet specific fix for z-index issues in some contexts */
+.leaflet-pane { z-index: 0; }
+.leaflet-bottom { z-index: 0; }
+
+body {
+  background-color: #FDFBF7; /* Warm Paper */
+  color: #1c1917; /* Stone 900 */
+  overscroll-behavior-y: none; /* Prevent bounce effect on whole page */
+  -webkit-tap-highlight-color: transparent;
+}
+
+.writing-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+/* Standalone PWA adjustments (optional) */
+@media all and (display-mode: standalone) {
+  /* Adjustments for standalone mode if needed */
+}
