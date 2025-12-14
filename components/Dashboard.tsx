@@ -575,15 +575,29 @@ const Dashboard: React.FC = () => {
                                             <div className="flex items-start gap-3">
                                                 <div className="w-3 h-3 bg-[#C44302] rounded-full flex-shrink-0 mt-1"></div>
                                                 <div>
-                                                    <p className="text-xs font-bold text-stone-900">Book Ajinoya FastPass</p>
-                                                    <p className="text-[10px] text-[#C44302] font-mono mt-0.5">Due: 11/22</p>
+                                                    <p className="text-xs font-bold text-stone-900">🔥 優先：預約 鳥久（水炊き老舖）</p>
+                                                    <p className="text-[10px] text-[#C44302] font-mono mt-0.5">12/21 18:30 • 不定休、電話訂位</p>
                                                 </div>
                                             </div>
-                                            <div className="flex items-start gap-3 opacity-60">
-                                                <div className="w-3 h-3 border border-stone-300 rounded-full flex-shrink-0 mt-1"></div>
+                                            <div className="flex items-start gap-3">
+                                                <div className="w-3 h-3 bg-[#C44302] rounded-full flex-shrink-0 mt-1"></div>
                                                 <div>
-                                                    <p className="text-xs font-medium text-stone-800">Concierge: Yuzugen Reservation</p>
-                                                    <p className="text-[10px] text-stone-400 font-mono mt-0.5">Contact Hotel ASAP</p>
+                                                    <p className="text-xs font-bold text-stone-900">預約 先斗町壽司よし乃</p>
+                                                    <p className="text-[10px] text-[#C44302] font-mono mt-0.5">12/20 18:00 • Tabelog/電話</p>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-start gap-3">
+                                                <div className="w-3 h-3 bg-[#C44302] rounded-full flex-shrink-0 mt-1"></div>
+                                                <div>
+                                                    <p className="text-xs font-bold text-stone-900">預約 南禪寺順正（湯豆腐）</p>
+                                                    <p className="text-[10px] text-[#C44302] font-mono mt-0.5">12/22 11:30 • 官網預約入口</p>
+                                                </div>
+                                            </div>
+                                            <div className="flex items-start gap-3 opacity-80">
+                                                <div className="w-3 h-3 border-2 border-[#C44302] rounded-full flex-shrink-0 mt-1"></div>
+                                                <div>
+                                                    <p className="text-xs font-medium text-stone-800">預約 はるな（豬壽喜燒）</p>
+                                                    <p className="text-[10px] text-stone-500 font-mono mt-0.5">12/23 17:30 • 備註 no beef</p>
                                                 </div>
                                             </div>
                                         </div>
