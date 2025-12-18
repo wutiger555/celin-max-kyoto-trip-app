@@ -6,7 +6,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import WeatherWidget from './WeatherWidget';
 import { ITINERARY_DATA, HOTELS, FLIGHTS } from '../data/itinerary';
-import { Plane, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, MapIcon, Navigation, Star, Ticket, Banknote, RefreshCw, Train, Clock, Plus, Minus, Edit, QrCode, ExternalLink, CheckSquare, Monitor, CreditCard, Smartphone, Zap } from './ui/Icons';
+import { Plane, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, MapIcon, Navigation, Star, Ticket, Banknote, RefreshCw, Train, Clock, Plus, Minus, Edit, QrCode, ExternalLink, CheckSquare, Monitor, CreditCard, Smartphone, Zap, CloudSnow } from './ui/Icons';
 import { ItineraryItem } from '../types';
 
 // --- Visual Components ---
@@ -265,6 +265,9 @@ const Dashboard: React.FC = () => {
                     <Plane className="w-4 h-4 text-stone-300 relative z-10 bg-white px-0.5 transform rotate-90" />
                     <div className="text-[9px] font-mono text-stone-400 mt-1">{flight.airline}</div>
                     <div className="text-[9px] font-mono text-stone-900 font-bold">{flight.code}</div>
+                    <div className="text-[8px] text-[#C44302] font-bold mt-1 bg-orange-50 px-1.5 py-0.5 rounded border border-orange-100 whitespace-nowrap">
+                        15kg Checked + 7kg Carry-on
+                    </div>
                 </div>
                 <div className="text-center">
                     <div className="text-2xl font-display font-bold text-stone-900 leading-none">{flight.arrival.code}</div>
@@ -701,7 +704,27 @@ const Dashboard: React.FC = () => {
 
                                     {/* TODO CONTENT */}
                                     {section.id === 'todo' && (
-                                        <div className="space-y-3 animate-in fade-in duration-500">
+                                        <div className="space-y-4 animate-in fade-in duration-500">
+                                            {/* Winter Clothing Guide */}
+                                            <div className="bg-stone-50 p-3 rounded border border-stone-200">
+                                                <div className="flex items-center gap-2 mb-2">
+                                                    <CloudSnow className="w-4 h-4 text-sky-400" />
+                                                    <span className="text-xs font-bold text-stone-900 uppercase tracking-wide">冬日穿搭指南 (2°C ~ 10°C)</span>
+                                                </div>
+                                                <div className="text-[10px] text-stone-600 space-y-2 leading-relaxed font-serif">
+                                                    <p>
+                                                        <strong className="text-stone-800">室內外溫差大：</strong>日本室內暖氣強，建議「洋蔥式穿法」，進室內只要脫外套就很舒服。
+                                                    </p>
+                                                    <ul className="list-disc list-inside space-y-1 pl-1">
+                                                        <li><span className="font-bold">外層：</span>防風厚大衣/羽絨衣 (最重要！)</li>
+                                                        <li><span className="font-bold">中層：</span>好穿脫的毛衣或針織衫</li>
+                                                        <li><span className="font-bold">內層：</span>發熱衣 (Heattech)</li>
+                                                        <li><span className="font-bold">下身：</span>防風褲或厚褲襪 (女生建議裙子+厚褲襪方便穿脫)</li>
+                                                        <li><span className="font-bold">配件：</span>圍巾、手套、毛帽 (風大時救星)</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
                                             <div className="flex items-start gap-3">
                                                 <div className="w-3 h-3 bg-[#C44302] rounded-full flex-shrink-0 mt-1"></div>
                                                 <div>
