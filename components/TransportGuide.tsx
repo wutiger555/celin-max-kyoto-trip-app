@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { TrainFront, Clock, AlertCircle, ChevronDown, ChevronUp, MapPin, Route, CreditCard, Ticket, Smartphone, AlertTriangle, Calculator, Map, Users, ChevronsRight, Monitor, ArrowRight, Zap, Maximize, Minimize, X, Info, Home, Navigation2 } from './ui/Icons';
+import { TrainFront, Clock, AlertCircle, ChevronDown, ChevronUp, MapPin, Route, CreditCard, Ticket, Smartphone, AlertTriangle, Calculator, Map, Users, ChevronsRight, Monitor, ArrowRight, Zap, Maximize, Minimize, X, Info, Home, Navigation2, ExternalLink } from './ui/Icons';
 import { generateSchedules, ScheduleItem } from '../data/schedules';
 
 // --- Improved Tool Components ---
@@ -364,11 +364,31 @@ const ScheduleBoard = ({ routeKey, title, from, to }: { routeKey: string, title:
                     <div className="text-xl font-bold font-display">{title}</div>
                 </div>
                 <div className="text-right">
-                    <div className="text-[10px] text-stone-400 font-mono">現在時間</div>
+                    <div className="text-[10px] text-stone-400 font-mono flex items-center justify-end gap-1">
+                        <span>資料來源: 預設時刻表</span>
+                        <Info className="w-3 h-3 text-stone-500" />
+                    </div>
                     <div className="text-2xl font-mono font-bold leading-none text-emerald-400">
                         {currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false })}
                     </div>
                 </div>
+            </div>
+
+            {/* Live Data Action */}
+            <div className="bg-stone-800 rounded p-2 mb-3 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></div>
+                    <span className="text-[10px] text-stone-300">想看即時誤點/車次？</span>
+                </div>
+                <a
+                    href={routeKey.includes('OSAKA_KIX') || routeKey.includes('KYOTO') ? "https://trafficinfo.westjr.co.jp/kinki_en.html" : "https://www.google.com/maps"}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-1 bg-stone-700 hover:bg-stone-600 px-2 py-1 rounded text-[10px] text-white transition-colors"
+                >
+                    <ExternalLink className="w-3 h-3" />
+                    <span>查看 JR 官網運行狀況</span>
+                </a>
             </div>
 
             <div className="space-y-2">
@@ -437,6 +457,11 @@ const GuideCard = ({ title, color, steps }: { title: string, color: string, step
                                 <h4 className="font-bold text-sm text-stone-900 mb-1 flex items-center gap-2">
                                     {step.icon}
                                     {step.text}
+                                    {step.detail && step.detail.includes('Google Maps') && (
+                                        <a href="https://www.google.com/maps/dir/?api=1&destination=Kansai+Airport+Station&travelmode=transit" target="_blank" rel="noreferrer" className="ml-auto">
+                                            <ExternalLink className="w-3 h-3 text-stone-400" />
+                                        </a>
+                                    )}
                                 </h4>
                                 {step.detail && <p className="text-xs text-stone-500 leading-relaxed font-serif bg-stone-50 p-2 rounded border border-stone-100">{step.detail}</p>}
                             </div>

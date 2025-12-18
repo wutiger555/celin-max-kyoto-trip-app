@@ -6,7 +6,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import WeatherWidget from './WeatherWidget';
 import { ITINERARY_DATA, HOTELS, FLIGHTS } from '../data/itinerary';
-import { Plane, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, MapIcon, Navigation, Star, Ticket, Banknote, RefreshCw, Train, Clock, Plus, Minus, Edit } from './ui/Icons';
+import { Plane, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, MapIcon, Navigation, Star, Ticket, Banknote, RefreshCw, Train, Clock, Plus, Minus, Edit, QrCode, ExternalLink, CheckSquare, Monitor, CreditCard, Smartphone, Zap } from './ui/Icons';
 import { ItineraryItem } from '../types';
 
 // --- Visual Components ---
@@ -272,11 +272,22 @@ const Dashboard: React.FC = () => {
                 </div>
             </div>
 
-            <div className="flex justify-between text-xs font-mono border-t border-stone-100 pt-3">
+            <div className="flex justify-between text-xs font-mono border-t border-stone-100 pt-3 mb-2">
                 <div className="text-stone-900 font-bold">{flight.departure.time}</div>
                 <div className="text-stone-400">Duration 2h 30m</div>
                 <div className="text-stone-900 font-bold">{flight.arrival.time}</div>
             </div>
+
+            <a
+                href={`https://www.flightradar24.com/data/flights/${flight.code.toLowerCase()}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center gap-2 w-full bg-stone-50 hover:bg-stone-100 text-stone-500 hover:text-[#C44302] py-2 rounded text-[10px] font-bold uppercase tracking-wider transition-colors border border-stone-200"
+            >
+                <Monitor className="w-3 h-3" />
+                <span>Track Live Status</span>
+                <ExternalLink className="w-3 h-3 opacity-50" />
+            </a>
         </div>
     );
 
@@ -508,10 +519,12 @@ const Dashboard: React.FC = () => {
 
                 {/* Reusable Accordion Item */}
                 {[
-                    { id: 'hotels', num: '01', title: 'Accommodations', icon: <Star className="w-3 h-3" /> },
-                    { id: 'flights', num: '02', title: 'Flight Info', icon: <Plane className="w-3 h-3" /> },
-                    { id: 'todo', num: '03', title: 'Checklist', icon: <Ticket className="w-3 h-3" /> },
-                    { id: 'currency', num: '04', title: 'Currency', icon: <Banknote className="w-3 h-3" /> }
+                    { id: 'visitjapan', num: '00', title: 'Entry & VJW', icon: <QrCode className="w-3 h-3" /> },
+                    { id: 'iccard', num: '01', title: 'Suica / ICOCA', icon: <CreditCard className="w-3 h-3" /> },
+                    { id: 'hotels', num: '02', title: 'Accommodations', icon: <Star className="w-3 h-3" /> },
+                    { id: 'flights', num: '03', title: 'Flight Info', icon: <Plane className="w-3 h-3" /> },
+                    { id: 'todo', num: '04', title: 'Checklist', icon: <Ticket className="w-3 h-3" /> },
+                    { id: 'currency', num: '05', title: 'Currency', icon: <Banknote className="w-3 h-3" /> }
                 ].map((section) => (
                     <div key={section.id} className="group">
                         <button
@@ -540,6 +553,123 @@ const Dashboard: React.FC = () => {
                         >
                             <div className="overflow-hidden">
                                 <div className="bg-[#FDFBF7] border-x border-b border-stone-100 p-6 space-y-6 shadow-inner">
+
+                                    {/* VISIT JAPAN WEB CONTENT */}
+                                    {section.id === 'visitjapan' && (
+                                        <div className="space-y-4 animate-in fade-in duration-500">
+                                            <div className="bg-stone-100 p-4 rounded-sm border-l-4 border-[#C44302]">
+                                                <p className="text-xs font-bold text-stone-900 leading-relaxed mb-1">
+                                                    入境日本必備 (推薦)
+                                                </p>
+                                                <p className="text-[10px] text-stone-600 font-serif leading-relaxed mb-3">
+                                                    強烈建議事先填寫 Visit Japan Web 以取得 QR Code，可大幅縮短通關時間。
+                                                </p>
+                                                <div className="flex flex-col gap-2">
+                                                    <a
+                                                        href="https://vjw-lp.digital.go.jp/zh-hant/"
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                        className="flex items-center justify-center gap-2 bg-[#C44302] text-white px-4 py-3 rounded text-xs font-bold uppercase tracking-wider hover:bg-[#a33600] transition-colors shadow-sm"
+                                                    >
+                                                        <QrCode className="w-4 h-4" />
+                                                        <span>Open Visit Japan Web</span>
+                                                        <ExternalLink className="w-3 h-3 opacity-70" />
+                                                    </a>
+                                                    <div className="flex items-center gap-2 bg-white px-3 py-2 rounded border border-stone-200">
+                                                        <CheckSquare className="w-3 h-3 text-[#C44302]" />
+                                                        <span className="text-[10px] font-bold text-stone-500">記得截圖保存 QR Code (離線可用)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className="grid grid-cols-2 gap-2">
+                                                <div className="bg-white p-3 rounded border border-stone-100 shadow-sm relative overflow-hidden">
+                                                    <div className="text-[9px] font-bold text-stone-400 uppercase mb-1">Passport Profile</div>
+                                                    <div className="text-xs font-bold text-stone-800">Celin & Max</div>
+                                                </div>
+                                                <div className="bg-white p-3 rounded border border-stone-100 shadow-sm">
+                                                    <div className="text-[9px] font-bold text-stone-400 uppercase mb-1">Flight No.</div>
+                                                    <div className="text-xs font-bold text-stone-800 font-mono tracking-wider">{FLIGHTS.outbound.code}</div>
+                                                </div>
+                                                <div className="col-span-2 bg-white p-3 rounded border border-stone-100 shadow-sm">
+                                                    <div className="text-[9px] font-bold text-stone-400 uppercase mb-1">Accommodation (First Night)</div>
+                                                    <div className="text-xs font-bold text-stone-800 mb-1">{HOTELS.kyoto.name}</div>
+                                                    <div className="text-[10px] text-stone-400 font-serif leading-tight select-all">{HOTELS.kyoto.address}</div>
+                                                    <div className="mt-2 text-[9px] text-[#C44302] border-t border-dashed border-stone-200 pt-1">
+                                                        Phone: Check Booking App
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* IC CARD CONTENT */}
+                                    {section.id === 'iccard' && (
+                                        <div className="space-y-4 animate-in fade-in duration-500">
+                                            {/* Status Badge */}
+                                            <div className="flex items-center gap-2 bg-stone-900 text-white p-3 rounded-lg shadow-md">
+                                                <div className="p-2 bg-green-500 rounded-full text-white">
+                                                    <Smartphone className="w-4 h-4" />
+                                                </div>
+                                                <div>
+                                                    <h4 className="text-xs font-bold uppercase tracking-wider">Apple Wallet Ready</h4>
+                                                    <p className="text-[10px] text-stone-300">手機感應即可，免解鎖</p>
+                                                </div>
+                                            </div>
+
+                                            {/* Budget Recommendation */}
+                                            <div className="bg-white p-4 rounded border border-stone-200 shadow-sm relative overflow-hidden">
+                                                <div className="absolute top-0 right-0 p-2 opacity-10">
+                                                    <Banknote className="w-12 h-12" />
+                                                </div>
+                                                <h5 className="text-[10px] font-bold text-stone-400 uppercase tracking-widest mb-2">建議儲值金額</h5>
+                                                <div className="flex items-baseline gap-2 mb-3">
+                                                    <span className="text-2xl font-display font-bold text-[#C44302]">¥10,000</span>
+                                                    <span className="text-xs text-stone-500">/ 人</span>
+                                                </div>
+                                                <ul className="space-y-1.5">
+                                                    <li className="flex justify-between text-xs text-stone-600 border-b border-dashed border-stone-100 pb-1">
+                                                        <span>交通 (機場+京阪移動)</span>
+                                                        <span className="font-mono font-bold">~¥5,000</span>
+                                                    </li>
+                                                    <li className="flex justify-between text-xs text-stone-600 border-b border-dashed border-stone-100 pb-1">
+                                                        <span>超商/販賣機/小吃</span>
+                                                        <span className="font-mono font-bold">~¥3,000</span>
+                                                    </li>
+                                                    <li className="flex justify-between text-xs text-stone-600">
+                                                        <span>預備金 (避免沒錢尷尬)</span>
+                                                        <span className="font-mono font-bold">~¥2,000</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+                                            {/* Top Up Guide (Visa Warning) */}
+                                            <div className="bg-orange-50 p-3 rounded border border-orange-100">
+                                                <h5 className="text-[10px] font-bold text-orange-800 uppercase tracking-widest mb-2 flex items-center gap-1">
+                                                    <Zap className="w-3 h-3" /> 重要：儲值小撇步
+                                                </h5>
+                                                <div className="space-y-2 text-xs text-orange-900 leading-relaxed font-serif">
+                                                    <p>
+                                                        <strong className="text-red-600">海外 Visa 卡常失敗！</strong><br />
+                                                        若 Apple Pay 儲值失敗，請改用 <span className="font-bold underline">Mastercard / JCB / Amex</span>。
+                                                    </p>
+                                                    <div className="w-full h-px bg-orange-200/50"></div>
+                                                    <p>
+                                                        <strong className="text-stone-800">現金也能儲值：</strong><br />
+                                                        去 <span className="font-bold">7-11 的 ATM</span>，手機放上去選「Charge」即可存現金，免手續費！
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            {/* Usage Scope */}
+                                            <div className="grid grid-cols-2 gap-2 text-[10px] uppercase font-bold text-stone-500 tracking-wider text-center">
+                                                <div className="bg-stone-50 py-2 rounded">京阪 JR/地鐵 (OK)</div>
+                                                <div className="bg-stone-50 py-2 rounded">公車 (OK)</div>
+                                                <div className="bg-stone-50 py-2 rounded">超商/販賣機 (OK)</div>
+                                                <div className="bg-stone-50 py-2 rounded">置物櫃 (OK)</div>
+                                            </div>
+                                        </div>
+                                    )}
 
                                     {/* HOTELS CONTENT */}
                                     {section.id === 'hotels' && (
