@@ -381,7 +381,7 @@ const ScheduleBoard = ({ routeKey, title, from, to }: { routeKey: string, title:
                     <span className="text-[10px] text-stone-300">想看即時誤點/車次？</span>
                 </div>
                 <a
-                    href={routeKey.includes('OSAKA_KIX') || routeKey.includes('KYOTO') ? "https://trafficinfo.westjr.co.jp/kinki_en.html" : "https://www.google.com/maps"}
+                    href={routeKey.includes('OSAKA_KIX') || routeKey.includes('KYOTO') ? "https://trafficinfo.westjr.co.jp/en/kinki.html" : "https://www.google.com/maps"}
                     target="_blank"
                     rel="noreferrer"
                     className="flex items-center gap-1 bg-stone-700 hover:bg-stone-600 px-2 py-1 rounded text-[10px] text-white transition-colors"
@@ -560,7 +560,7 @@ const TransportGuide: React.FC = () => {
 
                         <div className="grid grid-cols-2 gap-3">
                             <a
-                                href="https://trafficinfo.westjr.co.jp/kinki_en.html"
+                                href="https://trafficinfo.westjr.co.jp/en/kinki.html"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="bg-white/10 border border-white/20 rounded-lg p-3 hover:bg-white/20 transition-colors group"
